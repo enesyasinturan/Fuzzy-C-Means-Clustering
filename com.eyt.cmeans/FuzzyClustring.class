@@ -1,0 +1,23 @@
+class FuzzyClustering
+{
+    private ClusterVariables _clusterVariables;
+
+    FuzzyClustering()
+    {
+        this._clusterVariables = new ClusterVariables();
+    }
+
+    FuzzyClustering(ClusterVariables clusterVariables)
+    {
+        this._clusterVariables = clusterVariables;
+    }
+
+	public ClusterVariables get_clusterVariables() {
+		return this._clusterVariables;
+	}
+
+	public void set_clusterVariables(ClusterVariables _clusterVariables) {
+		this._clusterVariables = _clusterVariables;
+	}
+
+}
