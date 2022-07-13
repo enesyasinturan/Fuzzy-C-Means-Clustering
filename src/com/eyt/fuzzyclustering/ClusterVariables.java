@@ -6,22 +6,23 @@ import java.util.List;
 
 public class ClusterVariables {
 
-	private List<Integer> _xiList;
-	private List<Integer> _centroidList;
+	private List<Double> _xiList;
+	private List<Double> _centroidList;
 	private int _centroidNumber;
 	private int _fuzzyIndex;
 	private double _stoppingCriterion;
+	private List<Double> uiList = new ArrayList<Double>();
 
 	ClusterVariables() {
-		this._xiList = Arrays.asList(1, 3, 5, 9, 13, 15, 17);
-		this._centroidList = Arrays.asList(2, 16);
+		this._xiList = Arrays.asList(1.0, 3.0, 5.0, 9.0, 13.0, 15.0, 17.0);
+		this._centroidList = Arrays.asList(2.0, 16.0);
 		this._centroidNumber = 2;
 		this._fuzzyIndex = 2;
 		this._stoppingCriterion = 0.1;
 	}
 
-	ClusterVariables(ArrayList<Integer> xiList, ArrayList<Integer> _centroidList,
-			int _centroidNumber, int _fuzzyIndex, double _stoppingCriterion) {
+	ClusterVariables(ArrayList<Double> xiList, ArrayList<Double> _centroidList, int _centroidNumber,
+			int _fuzzyIndex, double _stoppingCriterion) {
 		this._xiList = xiList;
 		this._centroidList = _centroidList;
 		this._centroidNumber = _centroidNumber;
@@ -29,19 +30,19 @@ public class ClusterVariables {
 		this._stoppingCriterion = _stoppingCriterion;
 	}
 
-	public List<Integer> getXiList() {
+	public List<Double> getXiList() {
 		return this._xiList;
 	}
 
-	public void setXiList(List<Integer> _xiList) {
+	public void setXiList(List<Double> _xiList) {
 		this._xiList = _xiList;
 	}
 
-	public List<Integer> getCentroidList() {
+	public List<Double> getCentroidList() {
 		return this._centroidList;
 	}
 
-	public void setCentroidList(List<Integer> _centroidList) {
+	public void setCentroidList(List<Double> _centroidList) {
 		this._centroidList = _centroidList;
 	}
 
@@ -67,5 +68,13 @@ public class ClusterVariables {
 
 	public void setStoppingCriterion(double _stoppingCriterion) {
 		this._stoppingCriterion = _stoppingCriterion;
+	}
+
+	public List<Double> getUiList() {
+		return this.uiList;
+	}
+
+	public void setUiList(List<Double> uiList) {
+		this.uiList = uiList;
 	}
 }
