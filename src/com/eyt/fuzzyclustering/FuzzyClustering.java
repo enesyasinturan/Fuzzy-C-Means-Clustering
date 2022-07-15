@@ -47,20 +47,10 @@ public class FuzzyClustering {
 
     public void cluster() {
 
-        System.out.println();
-        System.out.println();
+        System.out.println("\n\n-----------------------------------------\n|\t\tITERATION:" + iterationCount + "\t\t|\n-----------------------------------------");
 
-        System.out.println("-----------------------------------------");
-        System.out.print("|");
-        System.out.print("\t\tITERATION: " + iterationCount + "\t\t");
-        System.out.println("|");
-        System.out.println("-----------------------------------------");
+        System.out.println("------------\n| u values |\n------------");
 
-        System.out.println("------------");
-        System.out.print("|");
-        System.out.print(" u values ");
-        System.out.println("|");
-        System.out.println("------------");
 
         newUiList.clear();
 
@@ -87,34 +77,20 @@ public class FuzzyClustering {
         newCentroids();
 
 
-        System.out.println("-----------------");
-        System.out.print("|");
-        System.out.print(" new centroids ");
-        System.out.println("|");
-        System.out.println("-----------------");
+        System.out.println("-----------------\n| new centroids |\n-----------------");
 
         for (Double item : clusterVariables.getCentroidList()) {
             System.out.println(item);
         }
 
-        System.out.println("-----------");
-        System.out.print("|");
-        System.out.print(" vi - ei ");
-        System.out.println("|");
-        System.out.println("-----------");
+        System.out.println("\n-----------\n| vi -ei |\n-----------");
 
         if (StoppingCriterionControl() == true) {
             iterationCount++;
-            System.out.println();
-            System.out.println("vi > ei");
-            System.out.println("clustering is continue...");
+            System.out.println("\nvi > ei\nclustering is continue...");
             cluster();
         } else {
-            System.out.println();
-            System.out.println("vi < ei");
-            System.out.println("Clustering is done.");
-            System.out.println();
-
+            System.out.println("\nvi < ei\nClustering is done.\n\n");
         }
     }
 
