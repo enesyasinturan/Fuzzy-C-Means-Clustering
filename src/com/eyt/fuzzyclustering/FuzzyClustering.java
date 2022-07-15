@@ -49,13 +49,24 @@ public class FuzzyClustering {
 
         System.out.println();
         System.out.println();
-        System.out.println("ITERASYON: " + iterationCount);
-        System.out.println();
-        System.out.println();
+
+        System.out.println("-----------------------------------------");
+        System.out.print("|");
+        System.out.print("\t\tITERATION: " + iterationCount + "\t\t");
+        System.out.println("|");
+        System.out.println("-----------------------------------------");
+
+        System.out.println("------------");
+        System.out.print("|");
+        System.out.print(" u values ");
+        System.out.println("|");
+        System.out.println("------------");
 
         newUiList.clear();
 
-
+        /**
+         * Ui değerlerinin hesaplanması
+         */
         for (int i = 1; i <= clusterVariables.getCentroidList().size(); i++) {
             for (int j = 1; j <= clusterVariables.getXiList().size(); j++) {
                 double result = 0.0;
@@ -65,21 +76,45 @@ public class FuzzyClustering {
                     result += Math.pow((clusterVariables.getXiList().get(j - 1) - clusterVariables.getCentroidList().get(i - 1)) / (clusterVariables.getXiList().get(j - 1) - clusterVariables.getCentroidList().get(k - 1)), 2);
                 }
                 newUiList.add(1 / result);
+
+                /* U değerlerinin ekrana yazılması */
                 System.out.println("u" + i + j + ": " + 1 / result);
             }
+            System.out.println();
         }
 
         clusterVariables.setUiList(newUiList);
         newCentroids();
 
+
+        System.out.println("-----------------");
+        System.out.print("|");
+        System.out.print(" new centroids ");
+        System.out.println("|");
+        System.out.println("-----------------");
+
+        for (Double item : clusterVariables.getCentroidList()) {
+            System.out.println(item);
+        }
+
+        System.out.println("-----------");
+        System.out.print("|");
+        System.out.print(" vi - ei ");
+        System.out.println("|");
+        System.out.println("-----------");
+
         if (StoppingCriterionControl() == true) {
             iterationCount++;
+            System.out.println();
+            System.out.println("vi > ei");
+            System.out.println("clustering is continue...");
             cluster();
         } else {
-            System.out.println("Kümeleme bitti.");
-            for (Double item : clusterVariables.getCentroidList()) {
-                System.out.println("new c: " + item);
-            }
+            System.out.println();
+            System.out.println("vi < ei");
+            System.out.println("Clustering is done.");
+            System.out.println();
+
         }
     }
 
@@ -88,7 +123,7 @@ public class FuzzyClustering {
         for (int i = 0; i < clusterVariables.getCentroidList().size(); i++) {
 
             double result = Math.abs(clusterVariables.getCentroidTempList().get(i) - clusterVariables.getCentroidList().get(i));
-            System.out.println("RESULT:::" + result);
+            System.out.println(result);
 
             if (result > clusterVariables.getStoppingCriterion() || result == 0) {
                 return true;
