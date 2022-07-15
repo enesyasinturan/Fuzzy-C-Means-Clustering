@@ -12,25 +12,26 @@ public class ClusterVariables {
 	private int _centroidNumber;
 	private int _fuzzyIndex;
 	private double _stoppingCriterion;
-	private List<Double> _uiList = new ArrayList<Double>();
+	private List<Double> _uiList;
 
-	ClusterVariables() {
+	public ClusterVariables() {
 		this._xiList = Arrays.asList(1.0, 3.0, 5.0, 9.0, 13.0, 15.0, 17.0);
 		this._centroidList = Arrays.asList(2.0, 16.0);
-		this._centroidTempList = this._centroidList;
-		this._centroidNumber = 2;
+		this._centroidTempList = new ArrayList<Double>();
+		this._centroidNumber = _centroidList.size();
 		this._fuzzyIndex = 2;
 		this._stoppingCriterion = 0.1;
+		this._uiList = new ArrayList<Double>();
 	}
 
-	ClusterVariables(List<Double> xiList, List<Double> _centroidList, List<Double> _centroidTempList, int _centroidNumber, int _fuzzyIndex, double _stoppingCriterion, List<Double> _uiList) {
+	public ClusterVariables(List<Double> xiList, List<Double> _centroidList, int _fuzzyIndex, double _stoppingCriterion) {
 		this._xiList = xiList;
 		this._centroidList = _centroidList;
-		this._centroidTempList = _centroidTempList;
-		this._centroidNumber = _centroidNumber;
+		this._centroidTempList = new ArrayList<Double>();
+		this._centroidNumber = _centroidList.size();
 		this._fuzzyIndex = _fuzzyIndex;
 		this._stoppingCriterion = _stoppingCriterion;
-		this._uiList = _uiList;
+		this._uiList = new ArrayList<Double>();
 	}
 
 	public List<Double> getXiList() {

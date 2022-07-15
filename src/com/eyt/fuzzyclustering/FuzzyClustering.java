@@ -5,13 +5,47 @@ import java.util.List;
 
 public class FuzzyClustering {
 
-    private static ClusterVariables clusterVariables = new ClusterVariables();
+    private ClusterVariables clusterVariables;
 
-    private static List<Double> newUiList = new ArrayList<Double>();
+    private List<Double> newUiList;
 
-    private static int iterationCount = 1;
+    private int iterationCount = 1;
 
-    public static void cluster() {
+    public FuzzyClustering() {
+        this.clusterVariables = new ClusterVariables();
+        this.newUiList = new ArrayList<Double>();
+    }
+
+    public FuzzyClustering(ClusterVariables clusterVariables) {
+        this.clusterVariables = clusterVariables;
+        this.newUiList = new ArrayList<Double>();
+    }
+
+    public ClusterVariables getClusterVariables() {
+        return this.clusterVariables;
+    }
+
+    public void setClusterVariables(ClusterVariables clusterVariables) {
+        this.clusterVariables = clusterVariables;
+    }
+
+    public List<Double> getNewUiList() {
+        return this.newUiList;
+    }
+
+    public void setNewUiList(List<Double> newUiList) {
+        this.newUiList = newUiList;
+    }
+
+    public int getIterationCount() {
+        return this.iterationCount;
+    }
+
+    public void setIterationCount(int iterationCount) {
+        this.iterationCount = iterationCount;
+    }
+
+    public void cluster() {
 
         System.out.println();
         System.out.println();
@@ -49,26 +83,7 @@ public class FuzzyClustering {
         }
     }
 
-    // private static Boolean FirstIteration() {
-    // Boolean firsIteration = false;
-
-    // /*
-    // * Küme merkezlerinin hata ile karşılaştırılması yapılmadan önce, kümelemenin ilk başında olup
-    // * olmadığının kontrolü burada gerçekleşiyor. Eğer geçici listedeki küme merkez değerleri ile
-    // normal
-    // * küme merkezleri aynıysa ilk iterasyondayız diyebiliriz.
-    // */
-    // for (int i = 0; i < clusterVariables.getCentroidList().size(); i++) {
-    // for (int j = i; j <= i; j++) {
-    // if (clusterVariables.getCentroidList().get(i) == clusterVariables.getCentroidTempList().get(i)) {
-    // firsIteration = true;
-    // }
-    // }
-    // }
-    // return firsIteration;
-    // }
-
-    private static Boolean StoppingCriterionControl() {
+    private Boolean StoppingCriterionControl() {
 
         for (int i = 0; i < clusterVariables.getCentroidList().size(); i++) {
 
@@ -82,7 +97,7 @@ public class FuzzyClustering {
         return false;
     }
 
-    private static void newCentroids() {
+    private void newCentroids() {
 
         List<Double> results = new ArrayList<Double>();
 
