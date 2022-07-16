@@ -47,12 +47,35 @@ public class FuzzyClustering {
 
     public void cluster() {
 
-        System.out.println("\n\n-----------------------------------------\n|\t\tITERATION:" + iterationCount + "\t\t|\n-----------------------------------------");
-
-        System.out.println("------------\n| u values |\n------------");
-
-
         newUiList.clear();
+
+
+        System.out.println("\n\n-----------------------------------------\n|\t\tITERATION: " + iterationCount + "\t\t|\n-----------------------------------------");
+
+        System.out.println("\n-------------\n| centorids |\n-------------");
+
+        for (Double centorid : clusterVariables.getCentroidList()) {
+            System.out.println(centorid);
+        }
+
+        if (iterationCount == 1) {
+            System.out.println("\n---------------\n| fuzzy index |\n---------------");
+            System.out.println(clusterVariables.getFuzzyIndex());
+
+            System.out.println("\n----------------------\n| stopping criterion |\n----------------------");
+            System.out.println(clusterVariables.getStoppingCriterion());
+
+            System.out.println("\n------------\n| x values |\n------------");
+
+            for (Double xValues : clusterVariables.getXiList()) {
+                System.out.println(xValues);
+            }
+        }
+
+
+        System.out.println("\n------------\n| u values |\n------------");
+
+
 
         /**
          * Ui değerlerinin hesaplanması
@@ -83,14 +106,14 @@ public class FuzzyClustering {
             System.out.println(item);
         }
 
-        System.out.println("\n----------\n| vi -ei |\n----------");
+        System.out.println("\n-----------\n| vi - ei |\n-----------");
 
         if (StoppingCriterionControl() == true) {
             iterationCount++;
             System.out.println("\nvi > ei\nclustering is continue...");
             cluster();
         } else {
-            System.out.println("\nvi < ei\nClustering is done.\n\n");
+            System.out.println("\nvi < ei\nclustering is done.\n\n");
         }
     }
 
