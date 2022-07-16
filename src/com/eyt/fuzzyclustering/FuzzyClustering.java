@@ -72,10 +72,7 @@ public class FuzzyClustering {
             }
         }
 
-
         System.out.println("\n------------\n| u values |\n------------");
-
-
 
         /**
          * Ui değerlerinin hesaplanması
@@ -90,7 +87,6 @@ public class FuzzyClustering {
                 }
                 newUiList.add(1 / result);
 
-                /* U değerlerinin ekrana yazılması */
                 System.out.println("u" + i + j + ": " + 1 / result);
             }
             System.out.println();
