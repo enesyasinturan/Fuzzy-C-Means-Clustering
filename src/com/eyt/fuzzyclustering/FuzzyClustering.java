@@ -63,7 +63,7 @@ public class FuzzyClustering {
 
                 for (int k = 1; k <= clusterVariables.getCentroidList().size(); k++) {
 
-                    result += Math.pow((clusterVariables.getXiList().get(j - 1) - clusterVariables.getCentroidList().get(i - 1)) / (clusterVariables.getXiList().get(j - 1) - clusterVariables.getCentroidList().get(k - 1)), 2);
+                    result += Math.pow((clusterVariables.getXiList().get(j - 1) - clusterVariables.getCentroidList().get(i - 1)) / (clusterVariables.getXiList().get(j - 1) - clusterVariables.getCentroidList().get(k - 1)), (2 / (clusterVariables.getFuzzyIndex() - 1)));
                 }
                 newUiList.add(1 / result);
 
@@ -83,7 +83,7 @@ public class FuzzyClustering {
             System.out.println(item);
         }
 
-        System.out.println("\n-----------\n| vi -ei |\n-----------");
+        System.out.println("\n----------\n| vi -ei |\n----------");
 
         if (StoppingCriterionControl() == true) {
             iterationCount++;
